@@ -1,0 +1,18 @@
+﻿@model IEnumerable<KhachSan.Models.DB.tbl_room>
+
+@foreach (var phong in Model)
+{
+    <div class="single_rooms">
+        <div class="room_thumb">
+            <a href="@Url.Action("Details", "View", new { id = phong.room_id })">
+                <img width="960" ,height="600" src="~/Content/ViewContent/img/rooms/@phong.room_image" alt="">
+                <div class="room_heading d-flex justify-content-between align-items-center">
+                    <div class="room_heading_inner">
+                        <span>Chỉ từ: @string.Format("{0:#,##0}", phong.tbl_room_type.room_price).Replace(',', '.') VNĐ/Đêm</span>
+                        <h3>@phong.tbl_room_type.room_name : @phong.room_number</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+}

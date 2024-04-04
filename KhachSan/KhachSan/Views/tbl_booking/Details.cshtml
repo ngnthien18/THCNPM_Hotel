@@ -1,0 +1,99 @@
+﻿@model KhachSan.Models.DB.tbl_booking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <h3>Hóa Đơn</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_name)
+        </dd>
+
+        <dt>
+            Địa Chỉ Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_address)
+        </dd>
+
+        <dt>
+            Email Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_email)
+        </dd>
+
+        <dt>
+            Số Điện Thoại Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_phone_no)
+        </dd>
+
+        <dt>
+            Ngày Đến
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_from)
+        </dd>
+
+        <dt>
+            Ngày Đi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_to)
+        </dd>
+
+        <dt>
+            Số Người
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_of_members)
+        </dd>
+
+        <dt>
+            Tổng Tiền
+        </dt>
+
+        <dd>
+            @string.Format("{0:#,##0}", Model.total_amount).Replace(',', '.')
+        </dd>
+
+        <dt>
+            Phòng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_room.room_number)
+        </dd>
+
+        <dt>
+            Hình Thức Thanh Toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_payment_type.payment_type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.booking_id },new { @class = "btn btn-warning" }) 
+    @Html.ActionLink("Trở Lại", "Index", null, new { @class = "btn btn-info" })
+</p>

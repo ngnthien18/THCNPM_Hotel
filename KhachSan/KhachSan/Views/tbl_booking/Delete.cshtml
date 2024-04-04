@@ -1,0 +1,105 @@
+﻿@model KhachSan.Models.DB.tbl_booking
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3>Bạn có chắc chắn muốn xóa?</h3>
+<div>
+    <h3>Hóa Đơn</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_name)
+        </dd>
+
+        <dt>
+            Địa Chỉ Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_address)
+        </dd>
+
+        <dt>
+            Email Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_email)
+        </dd>
+
+        <dt>
+            Số Điện Thoại Khách Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_phone_no)
+        </dd>
+
+        <dt>
+            Ngày Đến
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_from)
+        </dd>
+
+        <dt>
+            Ngày Đi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.booking_to)
+        </dd>
+
+        <dt>
+            Số Người
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_of_members)
+        </dd>
+
+        <dt>
+            Tổng Tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_amount)
+        </dd>
+
+        <dt>
+            Phòng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_room.room_number)
+        </dd>
+
+        <dt>
+            Hình Thức Thanh Toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_payment_type.payment_type)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+            @Html.ActionLink("Trở Lại", "Index",null,new { @class = "btn btn-info" })
+        </div>
+    }
+</div>
